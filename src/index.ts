@@ -11,6 +11,10 @@ const valdiateInput = z.object({
   todo: z.string(),
 });
 
+app.get("/", (req, res) => {
+  res.send("Healthy Server");
+});
+
 app.get("/todos", async (req, res) => {
   const todos = await prisma.todo.findMany();
   res.status(200).json({ data: todos });
