@@ -18,5 +18,8 @@ jobs:
       - name: Install dependencies
         run: npm install && npx prisma generate
 
+      - name: Run lint checks
+        run: npm run lint
+
       - name: Run tests
         run: npm run test
