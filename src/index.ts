@@ -12,7 +12,7 @@ const valdiateInput = z.object({
 });
 
 app.get("/", (req, res) => {
-  res.status(200).send("Healthy Server");
+  res.status(200).json({ data: "Healthy Server" });
 });
 
 app.get("/todos", async (req, res) => {
@@ -31,5 +31,5 @@ app.post("/todo", async (req, res) => {
       todo: validInput.data.todo,
     },
   });
-  res.status(200).json({ data: `Todo created.` });
+  res.status(200).json({ data: `Todo created with id ${newTodo.id}` });
 });
