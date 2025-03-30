@@ -31,6 +31,5 @@ app.post("/todo", async (req, res) => {
       todo: validInput.data.todo,
     },
   });
-  // res.status(200).json({ data: `Todo created with id ${newTodo.id}` });
   res.status(200).json({ data: `Todo created.` });
 });
