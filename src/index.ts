@@ -12,7 +12,7 @@ const valdiateInput = z.object({
 });
 
 app.get("/", (req, res) => {
-  res.send("Healthy Server");
+  res.status(200).send("Healthy Server");
 });
 
 app.get("/todos", async (req, res) => {
