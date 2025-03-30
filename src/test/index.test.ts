@@ -33,4 +33,25 @@ describe("POST/todo", () => {
     expect(res.statusCode).toBe(400);
     expect(res.body.data).toBe("Invalid input, please try again.");
   });
+
+  it("should be able to upadte an existing todo", async () => {
+    const date = new Date();
+    prisma.todo.update.mockResolvedValue({
+      id: "random_id_",
+      todo: "newTodo",
+      createdAt: date,
+    });
+
+    const res = await request(app).put("/update").send({
+      id: "cmsfadFSDKFJKSLD",
+      newTodo: "new todo",
+    });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.message).toBe("Todo has been updated");
+    expect(res.body.data).toStrictEqual({
+      id: "random_id_",
+      todo: "newTodo",
+      createdAt: date.toISOString(),
+    });
+  });
 });

@@ -1,1 +1,1 @@
-{"root":["./src/bin.ts","./src/db.ts","./src/index.ts","./src/test/index.test.ts"],"version":"5.8.2"}
+{"root":["./src/bin.ts","./src/db.ts","./src/index.ts","./src/__mocks__/db.ts","./src/test/index.test.ts"],"version":"5.8.2"}
