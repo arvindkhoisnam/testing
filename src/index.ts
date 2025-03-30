@@ -1,9 +1,11 @@
+import { PrismaClient } from "@prisma/client";
 import express from "express";
 import { z } from "zod";
 import { prisma } from "./db";
 
 export const app = express();
 
+const x = 100;
 app.use(express.json());
 
 const valdiateInput = z.object({
@@ -18,6 +20,8 @@ app.get("/todos", async (req, res) => {
   const todos = await prisma.todo.findMany();
   res.status(200).json({ data: todos });
 });
+
+app.put("/update/:id", async (req, res) => {});
 
 app.post("/todo", async (req, res) => {
   const validInput = valdiateInput.safeParse(req.body);
