@@ -17,7 +17,7 @@ describe("POST/todo", () => {
   it("should be able to create a todo", async () => {
     prisma.todo.create.mockResolvedValue({
       id: "random_id_",
-      todo: "",
+      todo: "newTodo",
       createdAt: new Date(),
     });
 
